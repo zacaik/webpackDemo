@@ -16,6 +16,15 @@ module.exports = {
           {
             loader: "css-loader", // 使用的loader
           },
+          {
+            loader: "postcss-loader",
+            // options传入loader所需的额外参数
+            options: {
+              postcssOptions: {
+                plugins: [require("autoprefixer")],
+              },
+            },
+          },
           // "css-loader", // use: [ { loader: 'style-loader'} ]的简写
         ],
       },
