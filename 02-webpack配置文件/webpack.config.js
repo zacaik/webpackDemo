@@ -15,6 +15,9 @@ module.exports = {
           "style-loader", // use中loader的解析顺序是从下往上的
           {
             loader: "css-loader", // 使用的loader
+            options: {
+              importLoaders: 1 // 表示外链的css文件，也需要使用前1个loader进行处理
+            },
           },
           "postcss-loader", // postcss-loader的简化写法，读取postcss.config.js文件中的配置
           // {
@@ -34,7 +37,17 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: ["style-loader", "css-loader", "postcss-loader", "less-loader"],
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 2
+            },
+          }, 
+          "postcss-loader", 
+          "less-loader"
+        ],
       },
     ],
   },

@@ -1,12 +1,3 @@
-.content {
-    color: #ffffff12;
-}
 
-:fullscreen {
-    font-size: large;
-}
+@import "./test.css";
 
-.content {
-    user-select: none;
-    transition: all 2s ease;
-}
