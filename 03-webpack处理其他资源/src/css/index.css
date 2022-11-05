@@ -1,0 +1,7 @@
+
+@import "./test.css";
+
+.bg {
+    background-image: url("../img/zznh.png");
+    background-size: contain;
+}
