@@ -54,10 +54,11 @@ module.exports = {
         // type: "asset/resource", // webpack5的新特性，处理css样式引入背景图时，需要使用这个特性
         use: [
           {
-            loader: "file-loader",
+            loader: "url-loader",
             options: {
-              name: "[name].[hash:6].[ext]",
-              outputPath: "img",
+              name: "img/[name].[hash:6].[ext]",
+              limit: 100 * 1024, // 100kb以内的图片才进行base64处理
+              // outputPath: "img",
             }
           }
         ]
