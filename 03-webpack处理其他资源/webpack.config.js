@@ -16,7 +16,7 @@ module.exports = {
           {
             loader: "css-loader", // 使用的loader
             options: {
-              importLoaders: 1 // 表示外链的css文件，也需要使用前1个loader进行处理
+              importLoaders: 1, // 表示外链的css文件，也需要使用前1个loader进行处理
             },
           },
           "postcss-loader", // postcss-loader的简化写法，读取postcss.config.js文件中的配置
@@ -42,27 +42,45 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              importLoaders: 2
+              importLoaders: 2,
             },
-          }, 
-          "postcss-loader", 
-          "less-loader"
+          },
+          "postcss-loader",
+          "less-loader",
         ],
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/, // 匹配要处理的文件后缀
         // type: "asset/resource", // webpack5的新特性，处理css样式引入背景图时，需要使用这个特性
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              name: "img/[name].[hash:6].[ext]",
-              limit: 100 * 1024, // 100kb以内的图片才进行base64处理
-              // outputPath: "img",
-            }
-          }
-        ]
-      }
+        // type: "asset/inline", // 将图片资源转换成data URI
+        type: "asset", // 可自动切换成resource或inline
+        generator: {
+          filename: "img/[name].[hash:6][ext]", // 设置使用asset/resource打包的静态资源的输出路径
+        },
+        parser: {
+          dataUrlCondition: {
+            // 设置使用inline方式的文件最大大小
+            maxSize: 100 * 1024,
+          },
+        },
+        // use: [
+        //   {
+        //     loader: "url-loader",
+        //     options: {
+        //       name: "img/[name].[hash:6].[ext]",
+        //       limit: 100 * 1024, // 100kb以内的图片才进行base64处理
+        //       // outputPath: "img",
+        //     }
+        //   }
+        // ]
+      },
+      {
+        test: /\.ttf|eot|woff2?$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "font/[name].[hash:6][ext]",
+        },
+      },
     ],
   },
 };

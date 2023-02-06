@@ -1,5 +1,6 @@
 
 @import "./test.css";
+@import "../font/iconfont.css";
 
 .bg {
     background-image: url("../img/zznh.png");

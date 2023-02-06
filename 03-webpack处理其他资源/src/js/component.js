@@ -8,10 +8,10 @@ function component() {
 
   // 创一个img元素
   const imgEl = new Image();
-  imgEl.src = require('../img/zznh.png').default;
+  // imgEl.src = require('../img/zznh.png').default;
   // imgEl.src = '../img/zznh.png'; 直接写相对路径的方式不能正常加载图片
   // img.src = img; 使用es6 module
-  // imgEl.src = require('../img/zznh.png'); // 当使用webpack5的asset/resource特性时，不再需要读取default属性
+  imgEl.src = require('../img/zznh.png'); // 当使用webpack5的asset/resource特性时，不再需要读取default属性
   element.appendChild(imgEl);
 
   // 创建一个div，设置背景图片
@@ -21,6 +21,12 @@ function component() {
   bgDiv.className = 'bg';
   // bgDiv.style.backgroundColor = 'red';
   element.appendChild(bgDiv);
+
+  // 新增一个i元素
+  const iEl = document.createElement('i');
+  iEl.className = 'iconfont icon-ashbin'
+  iEl.style.color = 'red';
+  element.appendChild(iEl);
 
   return element;
 }
