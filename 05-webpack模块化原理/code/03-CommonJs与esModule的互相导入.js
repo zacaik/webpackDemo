@@ -1,12 +1,22 @@
 (function () {
-    "use strict";
+    // webpackBootstrap
     var __webpack_modules__ = {
-      // 每个路径对应一个文件
+      "./src/js/formate.js": function (module) {
+        const dateFormate = (date) => {
+          return "2022-2-15";
+        };
+  
+        module.exports = {
+          dateFormate,
+        };
+      },
+  
       "./src/js/math.js": function (
         __unused_webpack_module,
         __webpack_exports__,
         __webpack_require__
       ) {
+        "use strict";
         __webpack_require__.r(__webpack_exports__);
         __webpack_require__.d(__webpack_exports__, {
           mul: function () {
@@ -25,24 +35,49 @@
         };
       },
     };
+    // The module cache
     var __webpack_module_cache__ = {};
   
+    // The require function
     function __webpack_require__(moduleId) {
+      // Check if module is in cache
       var cachedModule = __webpack_module_cache__[moduleId];
       if (cachedModule !== undefined) {
         return cachedModule.exports;
       }
+      // Create a new module (and put it into the cache)
       var module = (__webpack_module_cache__[moduleId] = {
+        // no module.id needed
+        // no module.loaded needed
         exports: {},
       });
   
-      // 挂载模块，将模块的导出内容装载到exports对象上
+      // Execute the module function
       __webpack_modules__[moduleId](module, module.exports, __webpack_require__);
   
+      // Return the exports of the module
       return module.exports;
     }
   
     !(function () {
+      // getDefaultExport function for compatibility with non-harmony modules
+      __webpack_require__.n = function (module) {
+        var getter =
+          module && module.__esModule
+            ? function () {
+                return module["default"];
+              }
+            : function () {
+                return module;
+              };
+        __webpack_require__.d(getter, { a: getter });
+        return getter;
+      };
+    })();
+  
+    /* webpack/runtime/define property getters */
+    !(function () {
+      // define getter functions for harmony exports
       __webpack_require__.d = function (exports, definition) {
         for (var key in definition) {
           if (
@@ -51,21 +86,24 @@
           ) {
             Object.defineProperty(exports, key, {
               enumerable: true,
-              get: definition[key], // get属性是一个方法，在对key取值时，会调用get方法
+              get: definition[key],
             });
+            console.log(exports.a);
           }
         }
       };
     })();
   
+    /* webpack/runtime/hasOwnProperty shorthand */
     !(function () {
       __webpack_require__.o = function (obj, prop) {
         return Object.prototype.hasOwnProperty.call(obj, prop);
       };
     })();
   
-    // 打标
+    /* webpack/runtime/make namespace object */
     !(function () {
+      // define __esModule on exports
       __webpack_require__.r = function (exports) {
         if (typeof Symbol !== "undefined" && Symbol.toStringTag) {
           Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
@@ -75,13 +113,23 @@
     })();
   
     var __webpack_exports__ = {};
+    // This entry need to be wrapped in an IIFE because it need to be in strict mode.
     !(function () {
+      "use strict";
       __webpack_require__.r(__webpack_exports__);
-      var _js_math_js__WEBPACK_IMPORTED_MODULE_0__ =
-        __webpack_require__("./src/js/math.js");
+      var _js_formate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+        "./src/js/formate.js"
+      );
+      console.log(_js_formate__WEBPACK_IMPORTED_MODULE_0__);
+      var _js_formate__WEBPACK_IMPORTED_MODULE_0___default =
+        __webpack_require__.n(_js_formate__WEBPACK_IMPORTED_MODULE_0__);
+      const math = __webpack_require__("./src/js/math.js");
   
-      console.log(_js_math_js__WEBPACK_IMPORTED_MODULE_0__.sum(10, 20));
-      console.log(_js_math_js__WEBPACK_IMPORTED_MODULE_0__.mul(10, 20));
+      console.log(math.sum(10, 20));
+      console.log(math.mul(10, 20));
+      console.log(
+        _js_formate__WEBPACK_IMPORTED_MODULE_0___default().dateFormate()
+      );
     })();
   })();
   
