@@ -7,13 +7,12 @@
   \***************************/
 /***/ (function(module) {
 
-const dateFormate = (date) => {
-    return "2022-2-15";
-}
-
+const dateFormate = date => {
+  return "2022-2-15";
+};
 module.exports = {
-    dateFormate
-}
+  dateFormate
+};
 
 /***/ }),
 
@@ -30,12 +29,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "sum": function() { return /* binding */ sum; }
 /* harmony export */ });
 const sum = (num1, num2) => {
-    return num1 + num2;
-}
-
+  return num1 + num2;
+};
 const mul = (num1, num2) => {
-    return num1 * num2;
-}
+  return num1 * num2;
+};
 
 /***/ })
 
@@ -119,14 +117,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_formate__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_js_formate__WEBPACK_IMPORTED_MODULE_0__);
 const math = __webpack_require__(/*! ./js/math.js */ "./src/js/math.js");
 
-
-
 console.log(aaa);
-
 console.log(math.sum(10, 20));
 console.log(math.mul(10, 20));
 console.log(_js_formate__WEBPACK_IMPORTED_MODULE_0___default().dateFormate());
-
 }();
 /******/ })()
 ;
