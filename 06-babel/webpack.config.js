@@ -15,11 +15,12 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
+        exclude: /node_modules/, // node_modules中的js文件不使用babel-loader处理
         use: {
           loader: "babel-loader",
-          options: {
-            presets: [["@babel/preset-env", { targets: "defaults" }]],
-          },
+          // options: {
+          //   presets: [["@babel/preset-env", { targets: "defaults" }]],
+          // },
         },
       },
     ],

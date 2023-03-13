@@ -18,7 +18,8 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: [["@babel/preset-env", { targets: "defaults" }]],
+            presets: [["@babel/preset-env", { targets: ["chrome 88"] }]],
+            // presets: ["@babel/preset-env"],
           },
         },
       },
