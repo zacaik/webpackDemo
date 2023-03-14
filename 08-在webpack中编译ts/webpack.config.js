@@ -5,7 +5,7 @@ const { DefinePlugin } = require("webpack");
 
 module.exports = {
   mode: "development",
-  entry: "./src/react_index.js",
+  entry: "./src/index.ts",
   devtool: "nosources-source-map",
   output: {
     filename: "js/bundle.js",
@@ -23,6 +23,10 @@ module.exports = {
           // },
         },
       },
+      {
+        test: /\.ts$/,
+        use: "ts-loader"
+      }
     ],
   },
   plugins: [
