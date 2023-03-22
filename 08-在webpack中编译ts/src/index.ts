@@ -1,4 +1,4 @@
-const msg: string = 'hello Typescript'
+const msg: string = 'hello Typescript~'
 
 const foo = (info: string) => {
     console.log(info);
