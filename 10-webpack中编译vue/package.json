@@ -42,6 +42,8 @@
     "stylelint": "^13.13.1",
     "ts-loader": "^9.4.2",
     "url-loader": "^4.1.1",
+    "vue-loader": "^17.0.1",
+    "vue-template-compiler": "^2.7.14",
     "webpack-cli": "^4.10.0"
   },
   "browserslist": [
@@ -53,9 +55,9 @@
     "@babel/plugin-transform-block-scoping": "^7.21.0",
     "@babel/runtime-corejs3": "^7.21.0",
     "core-js": "^3.29.1",
-    "eslint-loader": "^4.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "regenerator-runtime": "^0.13.11"
+    "regenerator-runtime": "^0.13.11",
+    "vue": "^3.2.47"
   }
 }

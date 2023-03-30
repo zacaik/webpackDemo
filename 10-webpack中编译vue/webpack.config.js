@@ -2,6 +2,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { DefinePlugin } = require('webpack');
+const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
   mode: 'development',
@@ -14,23 +15,29 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/, // node_modules中的js文件不使用babel-loader处理
+        test: /\.less$/,
         use: [
-          // {
-          //   loader: 'babel-loader',
-          //   // options: {
-          //   //   presets: [["@babel/preset-env", { targets: "defaults" }]],
-          //   // },
-          // },
-          'babel-loader',
-          'eslint-loader',
+          'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 2 } },
+          'postcss-loader',
+          'less-loader',
         ],
       },
       {
-        test: /\.ts$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
+        test: /\.js$/,
+        exclude: /node_modules/, // node_modules中的js文件不使用babel-loader处理
+        use: [
+          {
+            loader: 'babel-loader',
+            // options: {
+            //   presets: [["@babel/preset-env", { targets: "defaults" }]],
+            // },
+          },
+        ],
+      },
+      {
+        test: /\.vue$/,
+        use: 'vue-loader',
       },
     ],
   },
@@ -43,5 +50,6 @@ module.exports = {
     new DefinePlugin({
       BASE_URL: '"./"',
     }),
+    new VueLoaderPlugin(),
   ],
 };
