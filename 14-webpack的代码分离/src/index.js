@@ -10,3 +10,18 @@ console.log(dayjs());
 import("lodash").then((res) => {
   console.log(res.default);
 });
+
+const btn = document.createElement("button");
+btn.innerHTML = "加载元素";
+btn.addEventListener("click", () => {
+  import(
+    /* webpackChunkName: "element" */
+    /* webpackPrefetch: true */
+    "./element"
+  ).then((res) => {
+    console.log("element:");
+    console.log(res);
+    document.body.appendChild(res.default);
+  });
+});
+document.body.appendChild(btn);

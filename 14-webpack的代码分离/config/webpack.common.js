@@ -47,6 +47,7 @@ const commonConfig = {
       //   },
       // },
     },
+    runtimeChunk: "single",
   },
   module: {
     rules: [
