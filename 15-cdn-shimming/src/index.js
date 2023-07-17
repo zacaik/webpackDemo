@@ -3,6 +3,7 @@ import App from "./App.jsx";
 import { createRoot } from "react-dom/client";
 import axios from "axios";
 import React from "react";
+import "./index.css";
 
 axios
   .get("/api/getUser")
