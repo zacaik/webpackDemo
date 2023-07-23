@@ -1,0 +1,1 @@
+{"version":3,"file":"css/main.666f2203.css","mappings":";;;AAAA;EACE,eAAe;AACjB","sources":["webpack://webpack-dev-server/./src/index.css"],"sourcesContent":[".foo {\r\n  font-size: 24px;\r\n}\r\n"],"names":[],"sourceRoot":""}

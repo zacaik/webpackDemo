@@ -2,16 +2,14 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TeserPlugin = require("terser-webpack-plugin");
-const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
-const glob = require("glob");
+const CompressionPlugin = require("compression-webpack-plugin");
+const InlineChunkHtmlPlugin = require("inline-chunk-html-plugin");
 
 module.exports = {
   mode: "development",
   entry: "./src/index.js",
   output: {
-    filename: "bundle.js",
     path: path.resolve(__dirname, "./buld"),
-    // publicPath: "/",
   },
   devtool: "source-map",
   devServer: {
@@ -40,6 +38,7 @@ module.exports = {
     },
   },
   optimization: {
+    runtimeChunk: true,
     usedExports: true,
     minimize: true,
     minimizer: [
@@ -52,20 +51,7 @@ module.exports = {
           keep_classnames: true,
         },
       }),
-      // new CssMinimizerPlugin({
-      //   parallel: true,
-      // }),
     ],
-    // splitChunks: {
-    //   chunks: "all",
-    //   cacheGroups: {
-    //     defaultVendors: {
-    //       test: /[\\/]node_modules[\\/]/, // 定义匹配规则
-    //       filename: "[id]_verndors.js", // 输出的chunk的名称
-    //       priority: 0, // 优先级，谁高按照谁来打包
-    //     },
-    //   },
-    // },
   },
   module: {
     rules: [
@@ -83,14 +69,22 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./index.html",
+      minify: {
+        collapseWhitespace: true, // 折叠空格
+        keepClosingSlash: true, //
+        removeComments: true, // 移除注释
+        removeRedundantAttributes: true, //
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        useShortDoctype: true,
+      },
     }),
     new MiniCssExtractPlugin({
       filename: "css/[name].[hash:8].css",
     }),
-    new PurgeCSSPlugin({
-      path: glob.sync(`${path.resolve(__dirname, "src")}/**/*`, {
-        nodir: true,
-      }),
+    new CompressionPlugin({
+      test: /\.(css|js)$/i,
     }),
+    new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime.*\.js/]),
   ],
 };
