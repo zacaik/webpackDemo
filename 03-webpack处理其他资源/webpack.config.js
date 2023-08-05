@@ -5,6 +5,7 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "./build"), // 必须是绝对路径
+    publicPath: "assets/",
   },
   module: {
     rules: [
@@ -53,16 +54,16 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)$/, // 匹配要处理的文件后缀
         // type: "asset/resource", // webpack5的新特性，处理css样式引入背景图时，需要使用这个特性
         // type: "asset/inline", // 将图片资源转换成data URI
-        type: "asset", // 可自动切换成resource或inline
+        type: "asset/resource", // 可自动切换成resource或inline
         generator: {
-          filename: "img/[name].[hash:6][ext]", // 设置使用asset/resource打包的静态资源的输出路径
+          filename: "public/[name].[hash:6][ext]", // 设置使用asset/resource打包的静态资源的输出路径
         },
-        parser: {
-          dataUrlCondition: {
-            // 设置使用inline方式的文件最大大小
-            maxSize: 100 * 1024,
-          },
-        },
+        // parser: {
+        //   dataUrlCondition: {
+        //     // 设置使用inline方式的文件最大大小
+        //     maxSize: 100 * 1024,
+        //   },
+        // },
         // use: [
         //   {
         //     loader: "url-loader",
@@ -78,7 +79,7 @@ module.exports = {
         test: /\.ttf|eot|woff2?$/i,
         type: "asset/resource",
         generator: {
-          filename: "font/[name].[hash:6][ext]",
+          filename: "public/[name].[hash:6][ext]",
         },
       },
     ],
