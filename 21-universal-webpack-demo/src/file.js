@@ -1,4 +1,4 @@
-import img from "./public/nhlt.jpg";
+import img from "../public/nhlt.jpg";
 
 // 创一个img元素
 const imgEl = new Image();

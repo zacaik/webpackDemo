@@ -195,7 +195,7 @@ var log = function log() {
  ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _public_nhlt_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./public/nhlt.jpg */ "./src/public/nhlt.jpg");
+/* harmony import */ var _public_nhlt_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../public/nhlt.jpg */ "./public/nhlt.jpg");
 
 
 // 创一个img元素
@@ -236,7 +236,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ./public/nhlt.jpg */ "./src/public/nhlt.jpg"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../public/nhlt.jpg */ "./public/nhlt.jpg"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
@@ -244,7 +244,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.bg {
   background-image: url(${___CSS_LOADER_URL_REPLACEMENT_0___});
   background-size: contain;
 }
-`, "",{"version":3,"sources":["webpack://./src/index.css"],"names":[],"mappings":"AAAA;EACE,yDAA0C;EAC1C,wBAAwB;AAC1B","sourcesContent":[".bg {\r\n  background-image: url(\"./public/nhlt.jpg\");\r\n  background-size: contain;\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/index.css"],"names":[],"mappings":"AAAA;EACE,yDAA2C;EAC3C,wBAAwB;AAC1B","sourcesContent":[".bg {\r\n  background-image: url(\"../public/nhlt.jpg\");\r\n  background-size: contain;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -572,10 +572,10 @@ module.exports = styleTagTransform;
 
  }),
 
- "./src/public/nhlt.jpg":
-/*!*****************************!*\
-  !*** ./src/public/nhlt.jpg ***!
-  \*****************************/
+ "./public/nhlt.jpg":
+/*!*************************!*\
+  !*** ./public/nhlt.jpg ***!
+  \*************************/
  ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__.p + "06dedfb4ca6fc17e0b55.jpg";
@@ -736,6 +736,7 @@ __webpack_require__.r(__webpack_exports__);
 
 (0,_es6__WEBPACK_IMPORTED_MODULE_2__["default"])();
 console.log(_about_md__WEBPACK_IMPORTED_MODULE_3__["default"]);
+console.log(123);
 })();
 
  })()

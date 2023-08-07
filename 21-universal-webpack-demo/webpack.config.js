@@ -42,6 +42,12 @@ module.exports = {
     filename: "bundle.js",
     path: path.resolve(__dirname, "./build"),
   },
+  devServer: {
+    hot: true,
+    static: {
+      publicPath: "/assets",
+    },
+  },
   module: {
     rules: [
       {
@@ -76,5 +82,11 @@ module.exports = {
       },
     ],
   },
-  plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin(), new MyPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: "./index.html",
+    }),
+    new MyPlugin(),
+  ],
 };

@@ -5,3 +5,4 @@ import about from "./about.md";
 
 log();
 console.log(about);
+console.log(123);
