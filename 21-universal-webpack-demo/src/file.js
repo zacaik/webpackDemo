@@ -15,3 +15,12 @@ bgDiv.style.height = "200px";
 bgDiv.className = "bg";
 // bgDiv.style.backgroundColor = 'red';
 document.body.appendChild(bgDiv);
+
+if (module.hot) {
+  module.hot.accept("../public/nhlt.jpg", () => {
+    // 指定当 math 模块更新时，进行HMR
+    console.log("图片模块热替换");
+    // 自定义的 js 模块热更新的业务逻辑
+    imgEl.src = img;
+  });
+}

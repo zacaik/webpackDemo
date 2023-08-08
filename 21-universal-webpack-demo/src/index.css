@@ -1,4 +1,6 @@
 .bg {
   background-image: url("../public/nhlt.jpg");
   background-size: contain;
+  width: 500px !important;
+  height: 500px !important;
 }
