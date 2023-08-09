@@ -1,0 +1,1 @@
+{"version":3,"file":"src_async_js.bundle.js","mappings":";;;;;;;;;;;;;AAAA,iEAAe,YAAM;EACnBA,OAAO,CAACC,GAAG,CAAC,QAAQ,CAAC;AACvB,CAAC","sources":["webpack://21-universal-webpack-demo/./src/async.js"],"sourcesContent":["export default () => {\r\n  console.log(\"异步导入模块\");\r\n};\r\n"],"names":["console","log"],"sourceRoot":""}

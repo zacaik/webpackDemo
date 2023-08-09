@@ -39,13 +39,28 @@ module.exports = {
   mode: "development",
   devtool: "source-map",
   output: {
-    filename: "bundle.js",
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "./build"),
   },
   devServer: {
     hot: true,
     static: {
       publicPath: "/assets",
+    },
+  },
+  optimization: {
+    runtimeChunk: true,
+    splitChunks: {
+      chunks: "all",
+      minSize: 0,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          reuseExistingChunk: true,
+          name: "vendors",
+        },
+      },
     },
   },
   module: {

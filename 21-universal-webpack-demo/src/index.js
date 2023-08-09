@@ -3,6 +3,11 @@ import "./index.css";
 import log from "./es6";
 import about from "./about.md";
 import hmr from "./hmr";
+import _ from "lodash";
+
+setTimeout(() => {
+  import("./async.js");
+}, 1000);
 
 log();
 let ele = hmr();
